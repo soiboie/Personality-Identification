@@ -1,0 +1,58 @@
+body {
+    background: linear-gradient(145deg, rgba(255, 115, 0, 0.356), rgba(0, 255, 213, 0.438), rgba(255, 0, 115, 0.667));
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff; /* White background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+}
+
+h1 {
+    margin-top: 0; /* Remove default margin */
+    margin-bottom: 20px; /* Add space below the header */
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    font-size: 18px;
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+select:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
