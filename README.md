@@ -16,5 +16,6 @@ Included Results page for the Test as well but it is still under development wit
 
 Third Commit ( 5:00 PM to 8:00 PM) : The Javascript manages the middle-end to calculate and predict the personality type with each characteristics from the 4 sections into one of the 16 types to finally see the results. The results for the test will go to one of the 16 types which are handled by seperate html and css files for each personality.
 
+Fourth Commit ( 8:00 PM to 11:00 PM): Brushed Up the initial webpage design with better ones and fully implemented Results pages for all personality types. The Hosting can be by using Xampp Control Panel with Apache and MySQL running. 
 
                                       
