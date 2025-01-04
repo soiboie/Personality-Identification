@@ -1,0 +1,288 @@
+body{
+  background:linear-gradient(145deg,rgba(255, 115, 0, 0.356),rgba(0, 255, 213, 0.438),rgba(255, 0, 115, 0.667));
+}
+.bottom-text {
+  position: fixed;
+  bottom: 80px; /* Adjust as needed */
+  left: calc(50%); /* Adjusting for the border width */
+  transform: translateY(50%);
+  text-align: center;
+  color: #ffffffbf; /* Black text color */
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px 20px; /* Add padding for spacing */
+  border: 2px solid #fff; /* White border */
+  box-shadow: 0px 0px 10px rgba(14, 102, 196, 0.582); /* Box shadow for depth */
+  transition: border-color 0.3s ease, transform 0.3s ease; /* Added transition effect */
+  background-color: #1c37d1aa;
+}
+
+.bottom-text:hover {
+  border-color: #ddd; /* Lighter border color on hover */
+  transform: scale(1.05); /* Added slight scaling effect on hover */
+}
+.bottom-text p {
+  margin: 0;
+}
+
+.bottom-text-2 {
+  position: fixed;
+  bottom: 80px; /* Adjust as needed */
+  right: calc(50%); /* Adjusting for the border width */
+  transform: translateY(50%);
+  text-align: center;
+  color: #ffffffbf; /* Black text color */
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px 20px; /* Add padding for spacing */
+  border: 2px solid #fff; /* White border */
+  box-shadow: 0px 0px 10px rgba(14, 102, 196, 0.582); /* Box shadow for depth */
+  transition: border-color 0.3s ease, transform 0.3s ease; /* Added transition effect */
+  background-color: #1c37d1aa  ;
+}
+
+.bottom-text-2:hover {
+  border-color: #ddd; /* Lighter border color on hover */
+  transform: scale(1.05); /* Added slight scaling effect on hover */
+}
+.bottom-text-2 p {
+  margin: 0; /* Remove margin between paragraphs */
+}
+
+
+
+
+
+
+
+
+.quiz-container {
+    font-family: "Roboto", sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px;
+    display: none;
+  }
+
+  .quiz-container h2.question {
+    font-size: 20px;
+    background: #d0ecff;
+    padding: 16px;
+    border-radius: 8px;
+    font-weight: normal;
+    line-height: 1.6;
+  }
+  
+  .quiz-container .options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .quiz-container .option {
+    border: none;
+    padding: 24px 32px;
+    font-size: 18px;
+    background: #571d1d;
+    color: #fff;
+  }
+  
+  .quiz-container button {
+    cursor: pointer;
+  }
+  
+  .disabled {
+    pointer-events: none;
+  }
+  
+  
+
+
+  .quiz-container .next-btn {
+    background: #222;
+    color: #fff;
+    border: none;
+    padding: 12px 32px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 3px;
+    cursor: pointer;
+    width: fit-content;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Added transition effects */
+}
+
+.quiz-container .next-btn:hover {
+    background-color: #1d20e470; /* Darker background color on hover */
+    transform: scale(1.05); /* Added slight scaling effect on hover */
+}
+
+  
+  .quiz-result {
+    display: none;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: "Roboto", sans-serif;
+    padding: 16px;
+  }
+  
+  .quiz-result .question-container {
+    padding: 12px;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .quiz-result .question-container.incorrect {
+    background: #e63946;
+    color: #fff;
+  }
+  
+  .question-number {
+    font-size: 16px;
+    margin-right: 16px;
+    background: #1d3557;
+    color: #fff;
+    padding: 8px;
+    border-radius: 8px;
+  }
+  
+  @media (max-width: 700px) {
+    .quiz-container .options {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .start-btn-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .start-btn-container h2 {
+    font-size: 40px;
+    margin: 0;
+  }
+  
+  .start-btn-container .start-btn {
+    background: #6614a9;
+    color: #fff;
+    padding: 8px 32px;
+    border-radius: 8px;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: transform 0.3s ease; /* Added transition effect */
+}
+
+.start-btn-container .start-btn:hover {
+    background-color: #0e0d0dca;
+    transform: scale(1.05); /* Added slight scaling effect on hover */
+}
+
+  .option {
+    background-color: #f2f2f2;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .option:hover {
+    background-color: #1d20e470;
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+  
+  .option:focus,
+  .option:active {
+    background-color: #57636e;
+    outline: none;
+  }
+
+  .result-text {
+    background-color: #e61717c9;
+    color: #fff; 
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 15px 30px;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 1.5em;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .result-text:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .heading {
+    background: #571d1d2c;
+    color: #fff; 
+    border-radius: 10px;
+    padding: 15px 30px;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 1.5em;
+    font-weight: bold;
+    
+    transition: transform 0.3s ease;
+
+  }
+
+  .result-page-button {
+    background: #222;
+    color: #fff;
+    border: none;
+    padding: 12px 32px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 3px;
+    cursor: pointer;
+    width: fit-content;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Added transition effects */
+    position: fixed;
+    bottom: 20px;
+    left: 41%;
+    
+    font-family: "Roboto", sans-serif;
+    
+}
+
+.result-page-button:hover {
+    background-color: #1d20e470; /* Darker background color on hover */
+    transform: scale(1.05); /* Added slight scaling effect on hover */
+}
+
+  
+
+
+  
+
+  
+
+
+
+  
+  
+
+  
+  
+  
