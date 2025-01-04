@@ -11,5 +11,6 @@ Second Commit ( 2:00 Pm to 5:00 PM) : Completed the rest of the questions with 4
                                         3. Thinking/Feeling
                                         
                                         4. Judging/Perceiving 
+Included Results page for the Test as well but it is still under development with side.js file. 
 
                                       
