@@ -1,0 +1,50 @@
+body {
+    padding: 20px; 
+    background: linear-gradient(145deg, rgba(255, 115, 0, 0.356), rgba(0, 255, 213, 0.438), rgba(255, 0, 115, 0.667));
+    box-shadow: 0px 0px 20px rgb(0, 0, 0); 
+    font-size: 16px; /* Adjust font size for body */
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.container h1,
+.container h2,
+.container h3 {
+    color: #003399;
+    font-weight: bold;
+    background-color: white;
+    padding: 15px; /* Increase padding for titles */
+    border-radius: 5px;
+}
+
+.container h1 {
+    font-size: 40px; /* Increase font size for h1 */
+}
+
+.container h2 {
+    font-size: 28px; /* Increase font size for h2 */
+}
+
+.container h3 {
+    font-size: 24px; /* Increase font size for h3 */
+}
+
+.container p,
+.container ol {
+    margin-bottom: 20px;
+    font-size: 18px; /* Increase font size for paragraphs */
+}
+
+.container ol {
+    list-style-position: inside;
+    padding-left: 20px;
+}
+
+.container hr {
+    display: none;
+}
