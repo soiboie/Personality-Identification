@@ -1,12 +1,5 @@
-/* Global Styles */
-body {
-  margin: 0;
-  padding: 0;
+body{
   font-family: 'Roboto', sans-serif;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: linear-gradient(
       145deg,
       rgba(255, 69, 0, 0.7),
@@ -14,87 +7,229 @@ body {
       rgba(139, 0, 0, 0.8)
     ),
     url('your-image-path.png') no-repeat center center/cover;
-  color: white;
+  color: rgb(243, 240, 240);
 }
 
-/* Content Styles */
-.content {
-  text-align: center;
+
+
+
+.quiz-container {
+    font-family: "Roboto", sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px;
+    display: none;
+  }
+
+  .quiz-container h2.question {
+    font-size: 20px;
+    background: #2d3438;
+    padding: 16px;
+    border-radius: 8px;
+    font-weight: normal;
+    line-height: 1.6;
+  }
+  
+  .quiz-container .options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .quiz-container .option {
+    border: none;
+    padding: 24px 32px;
+    font-size: 18px;
+    background: #571d1d;
+    color: #fff;
+  }
+  
+  .quiz-container button {
+    cursor: pointer;
+  }
+  
+  
+  
+  
+
+
+  .quiz-container .next-btn {
+    background: #222;
+    color: #fff;
+    border: none;
+    padding: 12px 32px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 3px;
+    cursor: pointer;
+    width: fit-content;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Added transition effects */
+}
+
+.quiz-container .next-btn:hover {
+    background-color: #3131855e; /* Darker background color on hover */
+    transform: scale(1.05); /* Added slight scaling effect on hover */
+}
+
+  
+  .quiz-result {
+    display: none;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: "Roboto", sans-serif;
+    padding: 16px;
+  }
+  
+  .quiz-result .question-container {
+    padding: 12px;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .quiz-result .question-container.incorrect {
+    background: #e63946;
+    color: #fff;
+  }
+  
+  .question-number {
+    font-size: 16px;
+    margin-right: 16px;
+    background: #467fcf;
+    color: #fff;
+    padding: 8px;
+    border-radius: 8px;
+  }
+  
+  @media (max-width: 700px) {
+    .quiz-container .options {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .start-btn-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   background: rgba(0, 0, 0, 0.5);
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  .start-btn-container h2 {
+    font-size: 40px;
+    margin: 0;
+  }
+  
+  .start-btn-container .start-btn {
+    background: #6614a9;
+    color: #fff;
+    padding: 8px 32px;
+    border-radius: 8px;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: transform 0.3s ease; /* Added transition effect */
 }
 
-.content h1 {
-  font-size: 3rem;
-  margin-bottom: 15px;
-  color: #ff6f61;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+.start-btn-container .start-btn:hover {
+    background-color: #0e0d0dca;
+    transform: scale(1.05); /* Added slight scaling effect on hover */
 }
 
-.content p {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  color: #ffe6e1;
-}
-
-button {
-  font-size: 1.5rem;
-  padding: 10px 30px;
-  border: none;
-  border-radius: 20px; /* More smooth corners */
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
-  margin: 10px;
-}
-
-.start-btn {
-  background: #0be542;
-  color: white;
-}
-
-.start-btn:hover {
-  background: #ff6f61;
-  transform: scale(1.1);
-}
-
-.end-btn {
-  background: #ff6666;
-  color: white;
-}
-
-.end-btn:hover {
-  background: #e63939;
-  transform: scale(1.1);
-}
-
-.view-result-btn {
-  background: #61a4ff;
-  color: white;
-}
-
-.view-result-btn:hover {
-  background: #407bff;
-  transform: scale(1.1);
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .content h1 {
-    font-size: 2.5rem;
+  .option {
+    background-color: #f2f2f2;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .option:hover {
+    background-color: #1d20e470;
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+  
+  .option:focus,
+  .option:active {
+    background-color: #57636e;
+    outline: none;
   }
 
-  .content p {
-    font-size: 1.2rem;
+  .result-text {
+    background-color: #e61717c9;
+    color: #fff; 
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 15px 30px;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 1.5em;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .result-text:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .heading {
+    background: #571d1d2c;
+    color: #fff; 
+    border-radius: 10px;
+    padding: 15px 30px;
+    text-align: top;
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 1.5em;
+    font-weight: bold;
+    
+    transition: transform 0.3s ease;
+
   }
 
-  button {
-    font-size: 1.2rem;
-    padding: 8px 20px;
-  }
+  .result-page-button {
+    background: #222;
+    color: #fff;
+    border: none;
+    padding: 12px 32px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 3px;
+    cursor: pointer;
+    width: fit-content;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Added transition effects */
+    position: fixed;
+    bottom: 20px;
+    left: 41%;
+    
+    font-family: "Roboto", sans-serif;
+    
 }
 
+.result-page-button:hover {
+    background-color: #1d20e470; /* Darker background color on hover */
+    transform: scale(1.05); /* Added slight scaling effect on hover */
+}
 
   
 
