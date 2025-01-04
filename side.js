@@ -48,7 +48,7 @@ let quizData = [
       extrovertScore: 1,
       introvertScore: 1
     },
-  {
+    {
       question: "What's your idea of the perfect date?",
       options: ["A live concert in central ", "A mix of activities", "ParkDinner and a Broadway show, both social and quiet", "A cozy night in, just the two of us"],
       extrovertScore: 2,
@@ -320,7 +320,21 @@ let quizData = [
       judgingScore: 1,
       perceivingScore: 1
     }
+  
+    
+      
+    
+      
+        
+      
+        
+          
+        
+      
+    
+  
   ];
+  
   const quizContainer = document.querySelector(".quiz-container");
   const question = document.querySelector(".quiz-container .question");
   const options = document.querySelector(".quiz-container .options");
@@ -341,3 +355,198 @@ let quizData = [
   let judgingScore = 0;
   let perceivingScore = 0;
   const MAX_QUESTIONS = quizData.length;
+  
+  const shuffleArray = (array) => {
+    return array.slice().sort(() => Math.random() - 0.5);
+    };
+    
+    quizData = shuffleArray(quizData);
+  
+  
+  const resetLocalStorage = () => {
+  for (i = 0; i < MAX_QUESTIONS; i++) {
+    localStorage.removeItem(`userAnswer_${i}`);
+  }
+  };
+  
+  resetLocalStorage();
+  
+  const checkAnswer = (e) => {
+    let userAnswer = e.target.textContent;
+    let allOptions = document.querySelectorAll(".quiz-container .option");
+    allOptions.forEach((o) => {
+      o.classList.remove("disabled");
+    });
+    e.target.classList.add("disabled");
+  if (quizData[questionNumber].hasOwnProperty('extrovertScore')) {
+    if (userAnswer === quizData[questionNumber].options[0]) {
+      extrovertScore += quizData[questionNumber].extrovertScore;
+    } else {
+      introvertScore += quizData[questionNumber].introvertScore;
+    }
+  }
+  if (quizData[questionNumber].hasOwnProperty('extrovertScore')) {
+    if (userAnswer === quizData[questionNumber].options[2]) {
+      extrovertScore += quizData[questionNumber].extrovertScore;
+    } else {
+      introvertScore += quizData[questionNumber].introvertScore;
+    }
+  }
+  if (quizData[questionNumber].hasOwnProperty('intuitionScore')) {
+    if (userAnswer === quizData[questionNumber].options[0]) {
+      intuitionScore += quizData[questionNumber].intuitionScore;
+    } else {
+      sensingScore += quizData[questionNumber].sensingScore;
+    }
+  }
+  if (quizData[questionNumber].hasOwnProperty('intuitionScore')) {
+    if (userAnswer === quizData[questionNumber].options[2]) {
+      intuitionScore += quizData[questionNumber].intuitionScore;
+    } else {
+      sensingScore += quizData[questionNumber].sensingScore;
+    }
+  }
+  if (quizData[questionNumber].hasOwnProperty('thinkingScore')) {
+    if (userAnswer === quizData[questionNumber].options[0]) {
+      thinkingScore += quizData[questionNumber].thinkingScore;
+    } else {
+      feelingScore += quizData[questionNumber].feelingScore;
+    }
+  }
+  if (quizData[questionNumber].hasOwnProperty('thinkingScore')) {
+    if (userAnswer === quizData[questionNumber].options[2]) {
+      thinkingScore += quizData[questionNumber].thinkingScore;
+    } else {
+      feelingScore += quizData[questionNumber].feelingScore;
+    }
+  }
+  if (quizData[questionNumber].hasOwnProperty('judgingScore')) {
+    if (userAnswer === quizData[questionNumber].options[0]) {
+      judgingScore += quizData[questionNumber].judgingScore;
+    } else {
+      perceivingScore += quizData[questionNumber].perceivingScore;
+    }
+  }
+  if (quizData[questionNumber].hasOwnProperty('judgingScore')) {
+    if (userAnswer === quizData[questionNumber].options[2]) {
+      judgingScore += quizData[questionNumber].judgingScore;
+    } else {
+      perceivingScore += quizData[questionNumber].perceivingScore;
+    }
+  }
+  
+  localStorage.setItem(`userAnswer_${questionNumber}`, userAnswer);
+  
+  localStorage.setItem('introvertScore', introvertScore);
+  localStorage.setItem('extrovertScore', extrovertScore);
+  localStorage.setItem('intuitionScore', intuitionScore);
+  localStorage.setItem('sensingScore', sensingScore);
+  localStorage.setItem('thinkingScore', thinkingScore);
+  localStorage.setItem('feelingScore', feelingScore);
+  localStorage.setItem('judgingScore', judgingScore);
+  localStorage.setItem('perceivingScore', perceivingScore);
+  
+  };
+  
+  const createQuestion = () => {
+  options.innerHTML = "";
+  question.innerHTML = `<span class='question-number'>${
+    questionNumber + 1
+  }/${MAX_QUESTIONS}</span>${quizData[questionNumber].question}`;
+  
+  const shuffledOptions = shuffleArray(quizData[questionNumber].options);
+  
+  shuffledOptions.forEach((o) => {
+    const option = document.createElement("button");
+    option.classList.add("option");
+    option.innerHTML = o;
+    option.addEventListener("click", (e) => {
+      checkAnswer(e,questionNumber);
+    });
+    options.appendChild(option);
+  });
+  };
+  
+  const displayQuizResult = () => {
+  quizResult.style.display = "flex";
+  quizContainer.style.display = "none";
+  quizResult.innerHTML = "";
+  
+  const resultHeading = document.createElement("h2");
+  resultHeading.innerHTML = ``;
+  quizResult.appendChild(resultHeading);
+  
+  const resultText = document.createElement("p");
+  let finalScore = "";
+  if (introvertScore > extrovertScore) {
+    finalScore += "I";
+  } else if (extrovertScore > introvertScore) {
+    finalScore += "E";
+  } 
+  if (intuitionScore > sensingScore) {
+    finalScore += "N";
+  } else if (sensingScore > intuitionScore) {
+    finalScore += "S";
+  }
+  if (thinkingScore > feelingScore) {
+    finalScore += "T";
+  } else if (feelingScore > thinkingScore) {
+    finalScore += "F";
+  }
+  if (judgingScore > perceivingScore) {
+    finalScore += "J";
+  } else if (perceivingScore > judgingScore) {
+    finalScore += "P";
+  }
+  resultText.classList.add("result-text"); 
+  resultText.innerHTML = `Your Personality is : ${finalScore}`;
+  quizResult.appendChild(resultText);
+  };
+  
+  
+  const heading = document.createElement("h1"); { 
+  heading.classList.add("heading");
+  document.body.appendChild(heading);
+  }
+   
+  
+  const displayNextQuestion = () => {
+    if (questionNumber >= MAX_QUESTIONS - 1) {
+      displayQuizResult();
+      return;
+    }
+  
+    if (questionNumber === 0) {
+      heading.textContent = "SECTION 1: INTROVERT/EXTROVERT";
+    }
+    if (questionNumber === 9) {
+      heading.textContent = 'SECTION 2: INTUITION/SENSING';
+    }
+    if (questionNumber === 19) {
+      heading.textContent = 'SECTION 3: THINKING/FEELING';
+    }
+    if (questionNumber === 29) {
+      heading.textContent = 'SECTION 4: JUDGING/PERCEIVING';
+    }
+    if (questionNumber === 37) {
+      heading.textContent = 'Almost There';
+      
+    }
+    if (questionNumber === 38) {
+      heading.textContent = 'Thank you for your patience';
+    }
+  
+    questionNumber++;
+    options.innerHTML = "";
+    createQuestion();
+    
+  
+  }
+  
+  nextBtn.addEventListener("click", displayNextQuestion);
+  startBtn.addEventListener("click", () => {
+  startBtnContainer.style.display = "none";
+  quizContainer.style.display = "block";
+  createQuestion();
+  }); 
+  
