@@ -28,4 +28,7 @@ Step 3: To run the files accordingly , there are two steps:
 Step 4: after all these steps , Open web browser and type in "localhost\" and the file path in which you have stored index.html 
         Now the application can show you the results for your own Personality Test. 
 
+Note: 
+without localhost and php file connected , the results page wouldn't be displayed. 
+
                                       
